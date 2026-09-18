@@ -1,0 +1,60 @@
+name: CI
+
+# Build / typecheck / test gate for RevMind.
+#
+# This repo is a real external consumer of the published @revealui/* npm
+# packages and doubles as a smoke test for the npm distribution.
+
+on:
+  pull_request:
+    branches: [main, test]
+  push:
+    branches: [test]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+env:
+  NODE_VERSION: "24"
+  PNPM_VERSION: "10.28.2"
+
+jobs:
+  build-test:
+    name: lint · typecheck · test · build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Lint (Biome, hard fail)
+        run: pnpm lint
+      - name: Typecheck
+        run: pnpm typecheck
+      - name: Test
+        run: pnpm test
+      - name: Build
+        run: pnpm build
+      - name: Start preview
+        run: pnpm start &
+      - name: Wait for preview
+        run: |
+          for i in $(seq 1 40); do
+            curl -sf http://localhost:3002 > /dev/null 2>&1 && echo "RevMind ready" && break || \
+            echo "Waiting for revmind... ($i/40)" && sleep 3
+          done
+          curl -sf http://localhost:3002 > /dev/null 2>&1 || \
+            (echo "::error::RevMind preview failed to start within 120s" && exit 1)

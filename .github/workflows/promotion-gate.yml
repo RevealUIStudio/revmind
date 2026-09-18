@@ -1,0 +1,26 @@
+name: promotion-gate
+
+# Thin caller — logic lives in the org-shared composite action:
+#   RevealUIStudio/.github/.github/actions/promotion-gate
+# Composite (not workflow_call) so the required check context stays exactly
+# "promotion-gate" (repository rulesets). Pin is an immutable commit SHA;
+# bump deliberately or via Dependabot github-actions.
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  promotion-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: RevealUIStudio/.github/.github/actions/promotion-gate@092bb8d0dd0cb57e7aaa449399468a3cedf97b52
+        with:
+          head_ref: ${{ github.head_ref }}
+          head_repo: ${{ github.event.pull_request.head.repo.full_name }}
+          base_repo: ${{ github.repository }}
+          head_sha: ${{ github.event.pull_request.head.sha }}
+          base_ref: ${{ github.event.pull_request.base.ref }}
