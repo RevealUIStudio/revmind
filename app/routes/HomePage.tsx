@@ -13,7 +13,7 @@ export function HomePage() {
         <p className="max-w-2xl text-base text-muted-foreground">{DIAGRAM_HONESTY}</p>
       </div>
       <div className="rounded-xl border border-border bg-card p-4 sm:p-6">
-        <h2 className="mb-4 text-sm font-medium text-foreground">Demo graph</h2>
+        <h2 className="mb-4 text-sm font-medium text-foreground">Example graph</h2>
         <GraphCanvas snapshot={DEMO_SNAPSHOT} />
       </div>
     </section>
