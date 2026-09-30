@@ -1,6 +1,6 @@
 /** Safe honesty line — RevMind is not a public Architecture SKU. */
 export const DIAGRAM_HONESTY =
-  'architecture from your knowledge graph; not a public Architecture SKU' as const;
+  'Explore an example knowledge graph and the relationships it contains. This view uses demonstration data.' as const;
 
 export const PRODUCT_NAME = 'RevMind' as const;
 

@@ -9,8 +9,8 @@ describe('RevMind honesty', () => {
   });
 
   it('refuses a public Architecture SKU', () => {
-    expect(DIAGRAM_HONESTY).toContain('architecture from your knowledge graph');
-    expect(DIAGRAM_HONESTY).toContain('not a public Architecture SKU');
+    expect(DIAGRAM_HONESTY).toContain('example knowledge graph');
+    expect(DIAGRAM_HONESTY).toContain('demonstration data');
   });
 
   it('ships a demo snapshot with named nodes', () => {
