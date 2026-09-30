@@ -6,13 +6,13 @@ export function NotFoundPage() {
       <div className="text-center">
         <p className="text-sm font-semibold uppercase tracking-widest text-primary">404</p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          Page not found
+          This page isn't available.
         </h1>
         <p className="mt-4 max-w-md text-base text-muted-foreground">
-          The page you are looking for is not here.
+          Return to the example graph to continue exploring.
         </p>
         <div className="mt-8 flex items-center justify-center">
-          <LinkButton href="/">Return home</LinkButton>
+          <LinkButton href="/">Return to the example graph</LinkButton>
         </div>
       </div>
     </section>

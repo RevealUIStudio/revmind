@@ -17,7 +17,12 @@ function renderApp(path: string) {
 describe('NotFoundPage', () => {
   it('renders a 404 heading for unknown paths', () => {
     renderApp('/does-not-exist');
-    expect(screen.getByRole('heading', { level: 1, name: 'Page not found' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Return home' })).toHaveAttribute('href', '/');
+    expect(
+      screen.getByRole('heading', { level: 1, name: "This page isn't available." }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Return to the example graph' })).toHaveAttribute(
+      'href',
+      '/',
+    );
   });
 });

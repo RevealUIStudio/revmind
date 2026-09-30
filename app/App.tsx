@@ -18,7 +18,7 @@ export function App() {
         meta: {
           title: 'RevMind | architecture from your knowledge graph',
           description:
-            'RevMind — architecture from your knowledge graph. A RevealFleet product. Not a public Architecture SKU.',
+            'Explore an example knowledge graph and its relationships. RevMind displays demonstration data.',
         },
       },
       {
