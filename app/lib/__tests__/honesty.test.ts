@@ -5,7 +5,7 @@ import { DIAGRAM_HONESTY, PRODUCT_NAME, PRODUCT_REPO } from '@/lib/honesty';
 describe('RevMind honesty', () => {
   it('names the product RevMind', () => {
     expect(PRODUCT_NAME).toBe('RevMind');
-    expect(PRODUCT_REPO).toBe('RevealUIStudio/revmind');
+    expect(PRODUCT_REPO).toBe('revealui-studio/revmind');
   });
 
   it('refuses a public Architecture SKU', () => {

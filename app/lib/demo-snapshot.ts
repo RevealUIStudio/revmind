@@ -38,8 +38,8 @@ export const DEMO_SNAPSHOT: DiagramSnapshot = {
       id: 'n-revmind',
       kind: 'repo',
       name: 'RevMind',
-      naturalKey: 'RevealUIStudio/revmind',
-      repo: 'RevealUIStudio/revmind',
+      naturalKey: 'revealui-studio/revmind',
+      repo: 'revealui-studio/revmind',
     },
     {
       id: 'n-kg',

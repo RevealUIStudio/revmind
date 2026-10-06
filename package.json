@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/RevealUIStudio/revmind.git"
+    "url": "git+ssh://git@github.com/revealui-studio/revmind.git"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.9",
