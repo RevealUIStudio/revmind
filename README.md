@@ -1,7 +1,7 @@
 # RevMind
 
 Architecture from your knowledge graph. A RevealFleet product at
-[`RevealUIStudio/revmind`](https://github.com/RevealUIStudio/revmind).
+[`revealui-studio/revmind`](https://github.com/revealui-studio/revmind).
 
 RevMind is **not** a public Architecture SKU. Diagram export in RevealUI admin
 (`/revmind`, `POST /api/kg/diagram`) is Launch / licensed. This repo is the

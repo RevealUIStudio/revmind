@@ -9,7 +9,7 @@ export function NavBar() {
           {PRODUCT_NAME}
         </Link>
         <a
-          href="https://github.com/RevealUIStudio/revmind"
+          href="https://github.com/revealui-studio/revmind"
           className="text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           Source
