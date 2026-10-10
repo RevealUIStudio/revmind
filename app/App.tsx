@@ -1,24 +1,23 @@
 import { LinkBehaviorProvider } from '@revealui/presentation';
-import { Routes, useRouter } from '@revealui/router';
-import { useRef } from 'react';
+import { Link, Routes, useLocation, useRouter } from '@revealui/router';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { RootLayout } from './layouts/RootLayout';
+import { PAGE_DESCRIPTION } from './lib/honesty';
 import { HomePage } from './routes/HomePage';
 import { NotFoundPage } from './routes/NotFoundPage';
 
 export function App() {
   const router = useRouter();
-  const registered = useRef(false);
+  const { pathname } = useLocation();
 
-  if (!registered.current && router.getRoutes().length === 0) {
+  if (!router.getRoutes().some((route) => route.path === '/')) {
     router.registerRoutes([
       {
         path: '/',
         component: HomePage,
         meta: {
           title: 'RevMind | architecture from your knowledge graph',
-          description:
-            'Explore an example knowledge graph and its relationships. RevMind displays demonstration data.',
+          description: PAGE_DESCRIPTION,
         },
       },
       {
@@ -31,16 +30,15 @@ export function App() {
         },
       },
     ]);
-    registered.current = true;
   }
 
   return (
-    <ErrorBoundary>
-      <LinkBehaviorProvider>
+    <LinkBehaviorProvider component={Link} hrefProp="to">
+      <ErrorBoundary resetKey={pathname}>
         <RootLayout>
           <Routes />
         </RootLayout>
-      </LinkBehaviorProvider>
-    </ErrorBoundary>
+      </ErrorBoundary>
+    </LinkBehaviorProvider>
   );
 }
