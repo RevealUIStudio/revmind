@@ -1,6 +1,6 @@
 import { GraphCanvas } from '@/components/GraphCanvas';
 import { DEMO_SNAPSHOT } from '@/lib/demo-snapshot';
-import { DIAGRAM_HONESTY, PRODUCT_NAME } from '@/lib/honesty';
+import { DIAGRAM_HONESTY, PRODUCT_NAME, SKU_HONESTY } from '@/lib/honesty';
 
 export function HomePage() {
   return (
@@ -11,6 +11,7 @@ export function HomePage() {
           {PRODUCT_NAME}
         </h1>
         <p className="max-w-2xl text-base text-muted-foreground">{DIAGRAM_HONESTY}</p>
+        <p className="max-w-2xl text-sm text-muted-foreground">{SKU_HONESTY}</p>
       </div>
       <div className="rounded-xl border border-border bg-card p-4 sm:p-6">
         <h2 className="mb-4 text-sm font-medium text-foreground">Example graph</h2>

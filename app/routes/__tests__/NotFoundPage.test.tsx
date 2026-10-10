@@ -1,22 +1,10 @@
-import { Router, RouterProvider } from '@revealui/router';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { App } from '@/App';
-
-function renderApp(path: string) {
-  window.history.pushState({}, '', path);
-  const router = new Router();
-  router.initClient();
-  return render(
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>,
-  );
-}
+import { renderApp } from '@/test-utils';
 
 describe('NotFoundPage', () => {
   it('renders a 404 heading for unknown paths', () => {
-    renderApp('/does-not-exist');
+    renderApp('/does-not-exist?from=audit');
     expect(
       screen.getByRole('heading', { level: 1, name: "This page isn't available." }),
     ).toBeInTheDocument();

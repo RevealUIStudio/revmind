@@ -14,19 +14,19 @@ export function RouteHead() {
     if (meta?.title) {
       document.title = meta.title;
     }
-    if (meta?.description) {
-      const tag = document.querySelector('meta[name="description"]');
-      tag?.setAttribute('content', meta.description);
-    }
-    const robots = typeof meta?.robots === 'string' ? meta.robots : 'index,follow';
-    let robotsTag = document.querySelector('meta[name="robots"]');
-    if (!robotsTag) {
-      robotsTag = document.createElement('meta');
-      robotsTag.setAttribute('name', 'robots');
-      document.head.appendChild(robotsTag);
-    }
-    robotsTag.setAttribute('content', robots);
+    upsertMeta('description', typeof meta?.description === 'string' ? meta.description : '');
+    upsertMeta('robots', typeof meta?.robots === 'string' ? meta.robots : 'index,follow');
   }, [router, pathname]);
 
   return null;
+}
+
+function upsertMeta(name: string, content: string): void {
+  let tag = document.querySelector(`meta[name="${name}"]`);
+  if (!tag) {
+    tag = document.createElement('meta');
+    tag.setAttribute('name', name);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute('content', content);
 }
