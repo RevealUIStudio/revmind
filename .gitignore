@@ -39,3 +39,6 @@ coverage/
 # Agent tooling
 .claude/
 .grok/
+
+# Local fallback for scripts/check-client-leaks.sh. Never commit the pattern list.
+.client-name-watchlist.local

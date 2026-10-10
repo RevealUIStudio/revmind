@@ -1,0 +1,11 @@
+# .leakignore - allowlist for check-no-private-leaks.sh
+#
+# Format per line: <path-glob> <tag[,tag...]>  # reason
+# Blank lines and lines starting with # are skipped.
+#
+# A violation is suppressed only if BOTH the path matches the glob AND
+# the emitted tag is listed. Keep entries to path-globs and tags; this
+# file is scanned too.
+
+# Required code-owner handle on the policy file.
+.github/CODEOWNERS lit-username

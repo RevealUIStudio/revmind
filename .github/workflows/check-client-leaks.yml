@@ -1,0 +1,25 @@
+name: Client Name Leak Scan
+
+# Thin caller of the shared composite action. Job name preserved for rulesets.
+# The pattern list is the org Actions secret CLIENT_LEAK_PATTERNS.
+# The scanner fails closed when that secret is missing or empty.
+
+on:
+  push:
+    branches: [test, main]
+  pull_request:
+    branches: [test, main]
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    name: Client / prospect name leak scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: revealui-studio/.github/.github/actions/check-client-leaks@ed893dec79c02c60604d566a03ddfb305e9358fe
+        with:
+          client_leak_patterns: ${{ secrets.CLIENT_LEAK_PATTERNS }}
