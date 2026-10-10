@@ -8,7 +8,7 @@ staleness-status: FRESH
 
 # RevMind — Master Spec
 
-**Repo:** [RevealUIStudio/revmind](https://github.com/RevealUIStudio/revmind)
+**Repo:** [revealui-studio/revmind](https://github.com/revealui-studio/revmind)
 
 ## What it is
 

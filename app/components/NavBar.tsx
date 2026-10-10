@@ -9,10 +9,13 @@ export function NavBar() {
           {PRODUCT_NAME}
         </Link>
         <a
-          href="https://github.com/RevealUIStudio/revmind"
+          href="https://github.com/revealui-studio/revmind"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           Source
+          <span className="sr-only"> (opens in a new tab)</span>
         </a>
       </div>
     </header>

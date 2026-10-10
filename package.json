@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/RevealUIStudio/revmind.git"
+    "url": "git+ssh://git@github.com/revealui-studio/revmind.git"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.9",
@@ -44,15 +44,16 @@
     "lint:fix": "biome check --write .",
     "preview": "vite preview --port 3002",
     "start": "vite preview --port 3002",
-    "test": "vitest run --passWithNoTests",
+    "test": "vitest run",
     "test:coverage": "vitest run --coverage --coverage.reporter=json-summary --coverage.reporter=html --coverage.reporter=text",
     "typecheck": "tsc --noEmit"
   },
   "pnpm": {
     "overrides": {
       "@hono/node-server": ">=2.0.5",
-      "hono": "4.12.34",
+      "hono": "4.13.13",
       "postcss": "8.5.25",
+      "source-map-js": "1.2.2",
       "undici": ">=7.29.0 <8",
       "vite": "8.2.0",
       "typescript": "7.0.2"

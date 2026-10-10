@@ -1,7 +1,7 @@
 # RevMind
 
 Architecture from your knowledge graph. A RevealFleet product at
-[`RevealUIStudio/revmind`](https://github.com/RevealUIStudio/revmind).
+[`revealui-studio/revmind`](https://github.com/revealui-studio/revmind).
 
 RevMind is **not** a public Architecture SKU. Diagram export in RevealUI admin
 (`/revmind`, `POST /api/kg/diagram`) is Launch / licensed. This repo is the
@@ -36,5 +36,6 @@ Launch the product session with `rfg revmind` from the fleet root.
 
 ## Honesty
 
-Copy and UI must keep this line: architecture from your knowledge graph; not a
-public Architecture SKU.
+Copy and UI keep two lines: the on-page graph is an example that uses
+demonstration data, and architecture from your knowledge graph is not a public
+Architecture SKU.
